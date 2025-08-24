@@ -1,0 +1,283 @@
+/* Speakers Section */
+.speakers-section {
+    background: linear-gradient(135deg, #000000 0%, #000000 50%, #146889 100%);
+    min-height: 100vh;
+    padding: 100px 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.speakers-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(10, 136, 194, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.speakers-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.speakers-category {
+    margin-bottom: 80px;
+}
+
+.category-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a88c2;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    animation: fadeInDown 1s ease forwards;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #0a88c2, #146889);
+    border-radius: 2px;
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.speakers-grid {
+    display: grid;
+    gap: 40px;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Panel Discussion */
+.panel-speakers {
+    display: grid;
+    gap: 30px;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Speaker Card */
+.speaker-card {
+    background: linear-gradient(135deg, rgba(10, 136, 194, 0.15), rgba(20, 104, 137, 0.25));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    transform: translateZ(0); 
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(10, 136, 194, 0.4);
+    box-shadow: 0 20px 40px rgba(10, 136, 194, 0.25),
+                inset 0 0 15px rgba(10, 136, 194, 0.15);
+}
+
+.speaker-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(10, 136, 194, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.speaker-card:hover::before {
+    opacity: 1;
+}
+
+/* Speaker Image */
+.speaker-image {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(10, 136, 194, 0.3);
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.speaker-card:hover .speaker-image {
+    border-color: rgba(10, 136, 194, 0.8);
+    box-shadow: 0 0 30px rgba(10, 136, 194, 0.4);
+    transform: rotate(2deg) scale(1.1);
+}
+
+.speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.speaker-card:hover .speaker-image img {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.speaker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.speaker-image:hover .speaker-overlay {
+    opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(45deg, #0a88c2, #146889);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.social-link .icon {
+    font-size: 1.1rem;
+}
+
+/* Speaker Info */
+.speaker-info {
+    text-align: center;
+}
+
+.speaker-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.speaker-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #0a88c2;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.speaker-bio {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .speakers-section {
+        padding: 60px 15px;
+    }
+    
+    .category-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .speakers-grid {
+        gap: 30px;
+    }
+    
+    .speaker-card {
+        padding: 25px;
+    }
+    
+    .speaker-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .speaker-name {
+        font-size: 1.2rem;
+    }
+    
+    .speaker-bio {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .speakers-section {
+        padding: 50px 10px;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+    
+    .speaker-card {
+        padding: 18px;
+        border-radius: 20px;
+    }
+    
+    .speaker-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .speaker-name {
+        font-size: 1.1rem;
+    }
+    
+    .speaker-title {
+        font-size: 0.9rem;
+    }
+    
+    .speaker-bio {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+}

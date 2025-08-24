@@ -1,0 +1,447 @@
+/* Sponsors Section */
+.sponsors-section {
+    background: linear-gradient(135deg, #000000 0%, #000000 50%, #146889 100%);
+    min-height: 100vh;
+    padding: 100px 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsors-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(10, 136, 194, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.sponsors-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Header */
+.sponsors-section .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.sponsors-section .section-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #0a88c2, #FFFFFF, #146889);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(10, 136, 194, 0.5);
+}
+
+.sponsors-section .section-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Sponsor Tiers */
+.sponsor-tier {
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.tier-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.tier-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(20px);
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.tier-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.tier-badge:hover::before {
+    left: 100%;
+}
+
+/* Platinum Tier */
+.tier-badge.platinum {
+    background: linear-gradient(135deg, rgba(10, 136, 194, 0.15), rgba(20, 104, 137, 0.15));
+    border-color: #0a88c2;
+    box-shadow: 0 0 30px rgba(10, 136, 194, 0.3);
+}
+
+.tier-badge.platinum:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(10, 136, 194, 0.4);
+}
+
+/* Gold Tier */
+.tier-badge.gold {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(218, 165, 32, 0.15));
+border-color: #DAA520;
+box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
+}
+
+.tier-badge.gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(20, 104, 137, 0.4);
+}
+
+/* Silver Tier */
+.tier-badge.silver {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(169, 169, 169, 0.15));
+    border-color: #C0C0C0;
+    box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+}
+
+.tier-badge.silver:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(192, 192, 192, 0.4);
+}
+
+.tier-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.tier-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+/* Sponsors Scrolling Container */
+.sponsors-scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+.sponsors-track {
+    display: flex;
+    align-items: center;
+    animation: scroll-right 30s linear infinite;
+    width: fit-content;
+    gap: 60px;
+}
+
+/* Different speeds for each tier */
+.platinum-track {
+    animation-duration: 25s;
+}
+
+.gold-track {
+    animation-duration: 30s;
+}
+
+.silver-track {
+    animation-duration: 35s;
+}
+
+/* Sponsor Logo */
+.sponsor-logo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsor-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sponsor-logo:hover {
+    transform: translateY(-10px);
+    border-color: rgba(10, 136, 194, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 136, 194, 0.2);
+    animation-play-state: paused;
+}
+
+.sponsor-logo:hover::before {
+    opacity: 1;
+}
+
+.sponsor-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(0.8) contrast(1.2);
+    transition: all 0.3s ease;
+}
+
+.sponsor-logo:hover img {
+    filter: brightness(1) contrast(1);
+    transform: scale(1.05);
+}
+
+/* Scrolling Animation */
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on section hover */
+.sponsors-scroll-container:hover .sponsors-track {
+    animation-play-state: paused;
+}
+
+/* Tier-specific logo sizes */
+.platinum-track .sponsor-logo {
+    width: 250px;
+    height: 120px;
+}
+
+.gold-track .sponsor-logo {
+    width: 220px;
+    height: 110px;
+}
+
+.silver-track .sponsor-logo {
+    width: 180px;
+    height: 90px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sponsors-section {
+        padding: 80px 15px;
+    }
+    
+    .sponsors-section .section-title {
+        font-size: 3rem;
+    }
+    
+    .sponsor-tier {
+        margin-bottom: 60px;
+    }
+    
+    .sponsors-track {
+        gap: 40px;
+    }
+    
+    .partnership-cta {
+        margin-top: 80px;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsors-section .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .tier-badge {
+        padding: 12px 25px;
+        gap: 12px;
+    }
+    
+    .tier-title {
+        font-size: 1.2rem;
+    }
+    
+    .tier-icon {
+        font-size: 1.3rem;
+    }
+    
+    .sponsors-track {
+        gap: 30px;
+    }
+    
+    .sponsor-logo,
+    .platinum-track .sponsor-logo,
+    .gold-track .sponsor-logo {
+        width: 160px;
+        height: 80px;
+        padding: 15px;
+    }
+    
+    .silver-track .sponsor-logo {
+        width: 140px;
+        height: 70px;
+    }
+    
+    .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+    }
+    
+    .partnership-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors-section {
+        padding: 60px 10px;
+    }
+    
+    .sponsors-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .sponsor-tier {
+        margin-bottom: 40px;
+    }
+    
+    .tier-badge {
+        padding: 10px 20px;
+        gap: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .tier-title {
+        font-size: 1rem;
+    }
+    
+    .tier-icon {
+        font-size: 1.5rem;
+    }
+    
+    .sponsors-track {
+        gap: 20px;
+    }
+    
+    .sponsor-logo,
+    .platinum-track .sponsor-logo,
+    .gold-track .sponsor-logo {
+        width: 120px;
+        height: 60px;
+        padding: 10px;
+    }
+    
+    .silver-track .sponsor-logo {
+        width: 100px;
+        height: 50px;
+    }
+    
+    .partnership-cta {
+        padding: 30px 20px;
+        margin-top: 60px;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .partnership-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .sponsors-track {
+        animation: none;
+    }
+    
+    .sponsor-logo:hover {
+        transform: none;
+    }
+    
+    .tier-badge:hover,
+    .partnership-btn:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .sponsor-logo {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .tier-badge {
+        border-width: 3px;
+    }
+}
+
+/* Animation keyframes for gradient shift */
+@keyframes gradientShift {
+    0%, 100% { 
+        background-position: 0% 50%; 
+    }
+    50% { 
+        background-position: 100% 50%; 
+    }
+}
