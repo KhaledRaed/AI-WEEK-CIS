@@ -189,35 +189,57 @@
     font-size: 1.1rem;
 }
 
-/* Webmaster Section */
-.webmaster-section {
+/* Development Team Section */
+.development-team-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.development-team-section h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(10, 136, 194, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #0a88c2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(10, 136, 194, 0.6));
+    margin-bottom: 25px;
+}
+
+.developer-card {
     background: linear-gradient(145deg, rgba(10, 136, 194, 0.25), rgba(20, 104, 137, 0.20));
     border: 2px solid rgba(10, 136, 194, 0.6);
-    border-radius: 25px;
-    padding: 35px;
+    border-radius: 20px;
+    padding: 25px;
     backdrop-filter: blur(15px) saturate(180%);
     position: relative;
     overflow: hidden;
-    max-width: 400px;
-    width: 100%;
     box-shadow:
-        0 15px 35px rgba(10, 136, 194, 0.4),
-        0 5px 15px rgba(0, 0, 0, 0.5),
+        0 10px 25px rgba(10, 136, 194, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 40px rgba(10, 136, 194, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotateX(0deg);
-    }
-    50% {
-        transform: translateY(-8px) rotateX(2deg);
-    }
-}
-
-/* Animated Background Elements */
-.webmaster-section::before {
+/* Animated Background Elements for Developer Cards */
+.developer-card::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -225,79 +247,52 @@
     width: 200%;
     height: 200%;
     background:
-        radial-gradient(circle at 20% 80%, rgba(10, 136, 194, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(20, 104, 137, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(10, 136, 194, 0.05) 0%, transparent 50%);
-    animation: backgroundShift 15s ease-in-out infinite;
+        radial-gradient(circle at 20% 80%, rgba(10, 136, 194, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(20, 104, 137, 0.08) 0%, transparent 50%);
+    animation: backgroundShift 10s ease-in-out infinite;
 }
 
 @keyframes backgroundShift {
     0%, 100% {
         transform: rotate(0deg) scale(1);
     }
-    33% {
-        transform: rotate(120deg) scale(1.1);
-    }
-    66% {
-        transform: rotate(240deg) scale(0.9);
+    50% {
+        transform: rotate(180deg) scale(1.1);
     }
 }
 
-/* Top accent border */
-.webmaster-section::after {
+/* Lead Developer Specific Styles */
+.lead-developer {
+    border-color: rgba(10, 136, 194, 0.8);
+}
+
+.lead-developer::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg,
-            transparent 0%,
-            #0a88c2 20%,
-            #146889 50%,
-            #0a88c2 80%,
-            transparent 100%);
-    animation: borderGlow 3s ease-in-out infinite alternate;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #0a88c2 20%, #146889 50%, #0a88c2 80%, transparent 100%);
 }
 
-@keyframes borderGlow {
-    0% {
-        filter: brightness(1);
-    }
-    100% {
-        filter: brightness(1.5) saturate(1.2);
-    }
+/* Assistant Developer Specific Styles */
+.assistant-developer {
+    border-color: rgba(20, 104, 137, 0.7);
 }
 
-.webmaster-section h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 0 2px 10px rgba(10, 136, 194, 0.8);
-    margin-bottom: 25px !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    background: linear-gradient(135deg, #ffffff, #0a88c2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(10, 136, 194, 0.6));
+.assistant-developer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #146889 20%, #0a88c2 50%, #146889 80%, transparent 100%);
 }
 
-@keyframes textShimmer {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-.webmaster-info {
+/* Developer Info Styles */
+.developer-info {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -306,54 +301,38 @@
 }
 
 /* Profile Container */
-.webmaster-profile {
+.developer-profile {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Avatar */
-.webmaster-avatar {
-    width: 80px;
-    height: 80px;
+.developer-avatar {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #0a88c2, #146889);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     position: relative;
     box-shadow:
-        0 10px 25px rgba(10, 136, 194, 0.3),
+        0 8px 20px rgba(10, 136, 194, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    animation: avatarPulse 3s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
-@keyframes avatarPulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow:
-            0 10px 25px rgba(10, 136, 194, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow:
-            0 15px 35px rgba(10, 136, 194, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-}
-
-.webmaster-avatar::before {
+.developer-avatar::before {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
     border-radius: 50%;
     background: linear-gradient(45deg, #0a88c2, transparent, #146889, transparent);
     z-index: -1;
@@ -370,150 +349,108 @@
 }
 
 /* Name and Title */
-.webmaster-name {
-    font-size: 1.4rem;
+.developer-name {
+    font-size: 1.2rem;
     font-weight: 800;
     color: #ffffff;
-    text-shadow: 0 2px 10px rgba(10, 136, 194, 0.8);
-    margin-bottom: 8px;
-    text-align: center;
-    letter-spacing: 1px;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+    text-shadow: 0 2px 8px rgba(10, 136, 194, 0.8);
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
-.webmaster-title {
-    font-size: 1rem;
+.developer-title {
+    font-size: 0.9rem;
     color: #ffffff;
     font-weight: 600;
-    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-shadow: 0 1px 5px rgba(10, 136, 194, 0.8);
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 /* Skills Tags */
-.webmaster-skills {
+.developer-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
+    gap: 8px;
+    margin: 15px 0;
 }
 
 .skill-tag {
-    padding: 8px 14px;
+    padding: 6px 12px;
     background: rgba(10, 136, 194, 0.3);
-    border: 1px solid rgba(10, 136, 194, 0.8);
-    border-radius: 20px;
-    font-size: 0.8rem;
+    border: 1px solid rgba(10, 136, 194, 0.6);
+    border-radius: 15px;
+    font-size: 0.75rem;
     color: #ffffff;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 8px rgba(10, 136, 194, 0.3);
+    box-shadow: 0 2px 8px rgba(10, 136, 194, 0.2);
 }
 
 .skill-tag:hover {
-    background: rgba(10, 136, 194, 0.6);
+    background: rgba(10, 136, 194, 0.5);
     border-color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(10, 136, 194, 0.5);
+    box-shadow: 0 6px 15px rgba(10, 136, 194, 0.4);
     color: #ffffff;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Enhanced LinkedIn Button */
-.webmaster-linkedin {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 16px 28px;
-    background: linear-gradient(135deg, rgba(0, 119, 181, 0.3), rgba(0, 119, 181, 0.15));
-    border: 2px solid rgba(0, 119, 181, 0.8);
-    border-radius: 50px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    width: fit-content;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.4);
-}
-
-.webmaster-linkedin::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(0, 119, 181, 0.2),
-            transparent);
-    transition: left 0.5s ease;
-}
-
-.webmaster-linkedin:hover {
-    background: linear-gradient(135deg, rgba(0, 119, 181, 0.6), rgba(0, 119, 181, 0.4));
-    border-color: #ffffff;
-    transform: translateY(-4px) scale(1.05);
-    box-shadow:
-        0 20px 40px rgba(0, 119, 181, 0.6),
-        0 8px 20px rgba(0, 119, 181, 0.4);
-    color: #003879;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.webmaster-linkedin:hover::before {
-    left: 100%;
-}
-
-.webmaster-linkedin i {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.webmaster-linkedin:hover i {
-    transform: scale(1.2) rotate(5deg);
 }
 
 /* Contact Methods */
 .contact-methods {
     display: flex;
     justify-content: center;
-    gap: 18px;
-    margin-top: 25px;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background: rgba(10, 136, 194, 0.25);
-    border: 2px solid rgba(10, 136, 194, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 4px 12px rgba(10, 136, 194, 0.3);
+    box-shadow: 0 4px 12px rgba(10, 136, 194, 0.2);
+    border: 2px solid transparent;
+}
+
+/* LinkedIn Specific Styles */
+.contact-icon.linkedin {
+    background: rgba(0, 119, 181, 0.3);
+    border-color: rgba(0, 119, 181, 0.6);
+}
+
+.contact-icon.linkedin:hover {
+    background: rgba(0, 119, 181, 0.8);
+    border-color: #0077b5;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 119, 181, 0.5);
+}
+
+/* GitHub Specific Styles */
+.contact-icon.github {
+    background: rgba(88, 88, 88, 0.3);
+    border-color: rgba(88, 88, 88, 0.6);
+}
+
+.contact-icon.github:hover {
+    background: rgba(88, 88, 88, 0.8);
+    border-color: #585858;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(88, 88, 88, 0.5);
 }
 
 .contact-icon::before {
@@ -523,22 +460,13 @@
     left: 50%;
     width: 0;
     height: 0;
-    background: radial-gradient(circle, rgba(10, 136, 194, 0.3), transparent);
-    transition: all 0.4s ease;
-}
-
-.contact-icon:hover {
-    transform: translateY(-4px) scale(1.15);
-    border-color: #ffffff;
-    box-shadow: 0 15px 30px rgba(10, 136, 194, 0.6);
-    color: #ffffff;
-    background: rgba(10, 136, 194, 0.6);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.3s ease;
 }
 
 .contact-icon:hover::before {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     top: 0;
     left: 0;
 }
@@ -569,6 +497,11 @@
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+    }
+    
+    .development-team-section {
+        grid-column: span 2;
+        max-width: 100%;
     }
 }
 
@@ -602,8 +535,13 @@
         gap: 15px;
     }
 
-    .webmaster-section {
+    .development-team-section {
         max-width: 100%;
+    }
+
+    .developer-card {
+        margin: 0 auto 20px;
+        max-width: 350px;
     }
 }
 
@@ -626,24 +564,43 @@
         font-size: 1.1rem;
     }
 
-    .webmaster-section {
-        padding: 25px 20px;
-        margin: 10px;
+    .development-team-section {
+        gap: 15px;
     }
 
-    .webmaster-name {
+    .development-team-section h3 {
         font-size: 1.1rem;
     }
 
-    .webmaster-avatar {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8rem;
+    .developer-card {
+        padding: 20px;
+        margin: 0 auto 15px;
+        max-width: 100%;
     }
 
-    .webmaster-linkedin {
-        padding: 12px 20px;
-        font-size: 0.85rem;
+    .developer-name {
+        font-size: 1.1rem;
+    }
+
+    .developer-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .developer-profile {
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .skill-tag {
+        font-size: 0.7rem;
+        padding: 5px 10px;
     }
 }
 
@@ -656,6 +613,30 @@
     from {
         opacity: 0;
         transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional animations for developer cards */
+.developer-card {
+    animation: slideInUp 0.6s ease-out;
+}
+
+.lead-developer {
+    animation-delay: 0.1s;
+}
+
+.assistant-developer {
+    animation-delay: 0.2s;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
