@@ -231,8 +231,8 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
 }
 
 .sponsor-logo img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 190%;
+    max-height: 190%;
     object-fit: contain;
     filter: brightness(0.8) contrast(1.2);
     transition: all 0.3s ease;
@@ -240,7 +240,7 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
 
 .sponsor-logo:hover img {
     filter: brightness(1) contrast(1);
-    transform: scale(1.05);
+    transform: scale(1);
 }
 
 /* Scrolling Animation */
