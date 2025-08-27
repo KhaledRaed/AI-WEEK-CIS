@@ -70,7 +70,7 @@ function handleJoinEvent(eventType) {
     const eventActions = {
         'workshops': () => {
             console.log('Joining Workshops Day...');
-            // Add your registration logic here
+            window.open('https://sprw.io/stt-QB6cR', '_blank');
             showNotification('Redirecting to Workshops registration...', 'info');
         },
         'hackathon': () => {
