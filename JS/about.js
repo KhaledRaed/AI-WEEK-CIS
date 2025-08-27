@@ -1,11 +1,11 @@
 // AI Week Timeline JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize timeline animations
     initializeTimeline();
-    
+
     // Initialize button interactions
     initializeButtons();
-    
+
     // Initialize scroll animations
     initializeScrollAnimations();
 });
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Timeline Animation Functions
 function initializeTimeline() {
     const timelineItems = document.querySelectorAll('.timeline-item');
-    
+
     // Create intersection observer for timeline items
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -28,7 +28,7 @@ function initializeTimeline() {
         threshold: 0.2,
         rootMargin: '50px'
     });
-    
+
     // Observe all timeline items
     timelineItems.forEach(item => {
         observer.observe(item);
@@ -38,28 +38,28 @@ function initializeTimeline() {
 // Button Interaction Functions
 function initializeButtons() {
     const joinButtons = document.querySelectorAll('.join-btn');
-    
+
     joinButtons.forEach(button => {
         // Add click event listener
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const eventType = this.getAttribute('data-event');
             handleJoinEvent(eventType);
-            
+
             // Add ripple effect
             createRippleEffect(e, this);
-            
+
             // Add button animation
             animateButton(this);
         });
-        
+
         // Add hover effects
-        button.addEventListener('mouseenter', function() {
+        button.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-3px)';
         });
-        
-        button.addEventListener('mouseleave', function() {
+
+        button.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(-2px)';
         });
     });
@@ -89,7 +89,7 @@ function handleJoinEvent(eventType) {
             showNotification('Redirecting to Field Visits registration...', 'info');
         }
     };
-    
+
     if (eventActions[eventType]) {
         eventActions[eventType]();
     }
@@ -102,12 +102,12 @@ function createRippleEffect(event, button) {
     const size = Math.max(rect.width, rect.height);
     const x = event.clientX - rect.left - size / 2;
     const y = event.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
     ripple.classList.add('ripple-effect');
-    
+
     // Add ripple styles
     ripple.style.position = 'absolute';
     ripple.style.borderRadius = '50%';
@@ -115,9 +115,9 @@ function createRippleEffect(event, button) {
     ripple.style.transform = 'scale(0)';
     ripple.style.animation = 'ripple-animation 0.6s linear';
     ripple.style.pointerEvents = 'none';
-    
+
     button.appendChild(ripple);
-    
+
     // Remove ripple after animation
     setTimeout(() => {
         ripple.remove();
@@ -142,47 +142,70 @@ document.head.appendChild(style);
 // Animate button on click
 function animateButton(button) {
     button.style.transform = 'scale(0.95) translateY(0)';
-    
+
     setTimeout(() => {
         button.style.transform = 'scale(1) translateY(-2px)';
     }, 150);
 }
 
-// Scroll Animations
+// Scroll Animations - FIXED VERSION
 function initializeScrollAnimations() {
     const stats = document.querySelectorAll('.stat-number');
-    
+    let animatedStats = new Set(); 
+
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !animatedStats.has(entry.target)) {
                 animateCounter(entry.target);
+                animatedStats.add(entry.target); 
             }
         });
     }, {
         threshold: 0.5
     });
-    
+
     stats.forEach(stat => {
         statsObserver.observe(stat);
     });
 }
 
-// Animate counter numbers
+// Animate counter numbers - FIXED VERSION
 function animateCounter(element) {
-    const target = element.textContent;
-    const numericValue = parseInt(target.replace(/\D/g, ''));
-    const suffix = target.replace(/\d/g, '');
-    
+    const target = element.textContent.trim();
+    let numericValue, suffix;
+
+    // Handle different number formats
+    if (target.includes('hrs')) {
+        numericValue = parseInt(target.replace('hrs', ''));
+        suffix = 'hrs';
+    } else if (target.includes('+')) {
+        numericValue = parseInt(target.replace('+', ''));
+        suffix = '+';
+    } else {
+        numericValue = parseInt(target.replace(/\D/g, ''));
+        suffix = target.replace(/\d/g, '');
+    }
+
+    // Prevent animation if already running
+    if (element.dataset.animating === 'true') {
+        return;
+    }
+
+    element.dataset.animating = 'true';
     let current = 0;
-    const increment = numericValue / 50;
+    const increment = numericValue / 60; 
+    const duration = 2000; 
+    const stepTime = duration / 60;
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= numericValue) {
             current = numericValue;
             clearInterval(timer);
+            element.dataset.animating = 'false';
         }
         element.textContent = Math.floor(current) + suffix;
-    }, 30);
+    }, stepTime);
 }
 
 // Notification system
@@ -191,7 +214,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
+
     // Style the notification
     notification.style.cssText = `
         position: fixed;
@@ -210,14 +233,14 @@ function showNotification(message, type = 'info') {
         max-width: 300px;
         word-wrap: break-word;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Remove after delay
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
@@ -241,7 +264,7 @@ function smoothScrollTo(targetId) {
 // Enhanced timeline marker animations
 function enhanceTimelineMarkers() {
     const markers = document.querySelectorAll('.marker-dot');
-    
+
     markers.forEach((marker, index) => {
         // Add sequential glow effect
         setTimeout(() => {
@@ -251,7 +274,7 @@ function enhanceTimelineMarkers() {
 }
 
 // Initialize enhanced animations when page loads
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     setTimeout(() => {
         enhanceTimelineMarkers();
     }, 1000);
@@ -262,7 +285,7 @@ function addParallaxEffect() {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         timelineItems.forEach((item, index) => {
             const rate = scrolled * -0.1;
             item.style.transform = `translateY(${rate}px)`;
@@ -275,11 +298,11 @@ function addParallaxEffect() {
 
 // Day card hover enhancements
 document.querySelectorAll('.day-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -289,7 +312,7 @@ function handleResponsiveTimeline() {
     function checkScreenSize() {
         const isMobile = window.innerWidth <= 768;
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         timelineItems.forEach(item => {
             if (isMobile) {
                 item.classList.add('mobile-layout');
@@ -298,7 +321,7 @@ function handleResponsiveTimeline() {
             }
         });
     }
-    
+
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
 }
