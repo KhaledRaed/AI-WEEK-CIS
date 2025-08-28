@@ -75,7 +75,7 @@ function handleJoinEvent(eventType) {
         },
         'hackathon': () => {
             console.log('Joining Hackathon...');
-            // Add your registration logic here
+            window.open('hhttps://sprw.io/stt-IAsI7', '_blank')
             showNotification('Redirecting to Hackathon registration...', 'info');
         },
         'congress': () => {
@@ -293,8 +293,7 @@ function addParallaxEffect() {
     });
 }
 
-// Optional: Initialize parallax (uncomment if desired)
-// addParallaxEffect();
+addParallaxEffect();
 
 // Day card hover enhancements
 document.querySelectorAll('.day-card').forEach(card => {

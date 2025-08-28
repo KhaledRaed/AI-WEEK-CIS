@@ -94,7 +94,7 @@ function initializeTierBadges() {
     const tierBadges = document.querySelectorAll('.tier-badge');
     
     tierBadges.forEach((badge, index) => {
-        // Add sequential reveal animation
+        
         badge.style.opacity = '0';
         badge.style.transform = 'translateY(30px)';
         badge.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
@@ -104,7 +104,7 @@ function initializeTierBadges() {
             badge.style.transform = 'translateY(0)';
         }, index * 200);
         
-        // Add click ripple effect
+        
         badge.addEventListener('click', function(e) {
             createRippleEffect(e, this);
         });
@@ -175,7 +175,6 @@ function animateTierEntry(tierElement) {
     const logos = tierElement.querySelectorAll('.sponsor-logo');
     const track = tierElement.querySelector('.sponsors-track');
     
-    // Initially hide all logos
     logos.forEach(logo => {
         logo.style.opacity = '0';
         logo.style.transform = 'translateY(50px) scale(0.8)';
@@ -188,7 +187,6 @@ function animateTierEntry(tierElement) {
             logo.style.opacity = '1';
             logo.style.transform = 'translateY(0) scale(1)';
             
-            // Add a subtle bounce effect
             setTimeout(() => {
                 logo.style.transform = 'translateY(-5px) scale(1.05)';
                 setTimeout(() => {

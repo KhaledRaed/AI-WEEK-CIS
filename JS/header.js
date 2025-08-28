@@ -8,7 +8,6 @@ function hideSidebar() {
     if (sidebar) sidebar.classList.remove('active');
 }
 
-// Optional: Close sidebar when clicking outside
 document.addEventListener('click', function (event) {
     const sidebar = document.querySelector('.sidebar');
     const menuButton = event.target.closest('[onclick="showSidebar()"]');

@@ -8,17 +8,17 @@ function handleVideo() {
 
     // Check if the device width is less than or equal to 768px (adjust as needed)
     if (window.innerWidth <= 991) {
-        // Hide desktop video
+        
         desktopVideo.style.display = 'none';
-        // Load mobile video if it's not already loaded
+        
         if (mobileVideo.style.display !== 'block') {
             mobileVideo.style.display = 'block';
             mobileVideo.load(); // Load the mobile video
         }
     } else {
-        // Hide mobile video
+        
         mobileVideo.style.display = 'none';
-        // Load desktop video if it's not already loaded
+        
         if (desktopVideo.style.display !== 'block') {
             desktopVideo.style.display = 'block';
             desktopVideo.load(); // Load the desktop video
