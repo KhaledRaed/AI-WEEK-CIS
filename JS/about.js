@@ -75,7 +75,7 @@ function handleJoinEvent(eventType) {
         },
         'hackathon': () => {
             console.log('Joining Hackathon...');
-            window.open('hhttps://sprw.io/stt-IAsI7', '_blank')
+            window.open('https://sprw.io/stt-IAsI7', '_blank')
             showNotification('Redirecting to Hackathon registration...', 'info');
         },
         'congress': () => {
