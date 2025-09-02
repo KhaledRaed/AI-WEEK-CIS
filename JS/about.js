@@ -80,7 +80,7 @@ function handleJoinEvent(eventType) {
         },
         'congress': () => {
             console.log('Joining Congress Day...');
-            window.open('https://sprw.io/stt-oVDVy','_blank');
+            window.open('https://sprw.io/stt-oVDVy', '_blank');
             showNotification('Redirecting to Congress registration...', 'info');
         },
         'visits': () => {
