@@ -75,12 +75,12 @@ function handleJoinEvent(eventType) {
         },
         'hackathon': () => {
             console.log('Joining Hackathon...');
-            window.open('https://sprw.io/stt-IAsI7', '_blank')
+            window.open('https://sprw.io/stt-IAsI7', '_blank');
             showNotification('Redirecting to Hackathon registration...', 'info');
         },
         'congress': () => {
             console.log('Joining Congress Day...');
-            // Add your registration logic here
+            window.open('https://sprw.io/stt-oVDVy','_blank');
             showNotification('Redirecting to Congress registration...', 'info');
         },
         'visits': () => {
