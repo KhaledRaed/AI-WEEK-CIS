@@ -111,11 +111,11 @@
     opacity: 1;
 }
 
-/* Speaker Image */
+/* Speaker Image - Made Larger */
 .speaker-image {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 180px;  
+    height: 180px; 
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
@@ -135,6 +135,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top; 
     transition: transform 0.3s ease;
 }
 
@@ -161,30 +162,32 @@
     opacity: 1;
 }
 
-/* Social Links */
+/* Social Links - LinkedIn Only */
 .social-links {
     display: flex;
     gap: 15px;
 }
 
 .social-link {
-    width: 35px;
-    height: 35px;
-    background: linear-gradient(45deg, #0a88c2, #146889);
+    width: 45px;   
+    height: 45px;  
+    background: linear-gradient(45deg, #0077B5, #005885); 
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
 }
 
 .social-link .icon {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    color: white;
 }
 
 /* Speaker Info */
@@ -236,8 +239,8 @@
     }
     
     .speaker-image {
-        width: 100px;
-        height: 100px;
+        width: 150px;  
+        height: 150px; 
     }
     
     .speaker-name {
@@ -246,6 +249,11 @@
     
     .speaker-bio {
         font-size: 0.85rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -264,8 +272,8 @@
     }
     
     .speaker-image {
-        width: 80px;
-        height: 80px;
+        width: 130px;  
+        height: 170px; 
     }
     
     .speaker-name {
@@ -279,5 +287,14 @@
     .speaker-bio {
         font-size: 0.75rem;
         line-height: 1.4;
+    }
+    
+    .social-link {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .social-link .icon {
+        font-size: 1.1rem;
     }
 }
