@@ -121,16 +121,16 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
     box-shadow: 0 10px 40px rgba(20, 104, 137, 0.4);
 }
 
-/* Silver Tier */
-.tier-badge.silver {
-    background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(169, 169, 169, 0.15));
-    border-color: #C0C0C0;
-    box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+/* Bronze Tier */
+.tier-badge.bronze {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(160, 82, 45, 0.15));
+    border-color: #CD7F32;
+    box-shadow: 0 0 30px rgba(205, 127, 50, 0.3);
 }
 
-.tier-badge.silver:hover {
+.tier-badge.bronze:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(192, 192, 192, 0.4);
+    box-shadow: 0 10px 40px rgba(205, 127, 50, 0.4);
 }
 
 .tier-icon {
@@ -185,7 +185,7 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
     animation-duration: 30s;
 }
 
-.silver-track {
+.bronze-track {
     animation-duration: 35s;
 }
 
@@ -269,7 +269,7 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
     height: 110px;
 }
 
-.silver-track .sponsor-logo {
+.bronze-track .sponsor-logo {
     width: 180px;
     height: 90px;
 }
@@ -328,7 +328,7 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
         padding: 15px;
     }
     
-    .silver-track .sponsor-logo {
+    .bronze-track .sponsor-logo {
         width: 140px;
         height: 70px;
     }
@@ -387,7 +387,7 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
         padding: 10px;
     }
     
-    .silver-track .sponsor-logo {
+    .bronze-track .sponsor-logo {
         width: 100px;
         height: 50px;
     }
