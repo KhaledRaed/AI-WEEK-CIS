@@ -207,6 +207,16 @@ box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
     overflow: hidden;
 }
 
+.bronze-track .sponsor-logo {
+    background: #ffffff; 
+    border: 1px solid #CD7F32; 
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.2);
+}
+
+.bronze-track .sponsor-logo img {
+    filter: none; 
+}
+
 .sponsor-logo::before {
     content: '';
     position: absolute;

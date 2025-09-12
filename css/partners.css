@@ -121,11 +121,6 @@
             transition: opacity 0.3s ease;
         }
 
-        .partner-logo:hover {
-            transform: translateY(-10px);
-            border-color: rgba(10, 136, 194, 0.5);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 136, 194, 0.2);
-        }
 
         .partner-logo:hover::before {
             opacity: 1;
